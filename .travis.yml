@@ -5,14 +5,18 @@ language: cpp
 compiler: gcc
 
 before_install:
+    # cmake
+    - sudo add-apt-repository --yes ppa:george-edison55/cmake-3.x
     # C++17
     - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-    - sudo apt update -qq
+    - sudo apt-get update -qq
 
 install:
+    # cmake
+    - sudo apt-get install --only-upgrade cmake
     # C++17
-    - sudo apt install -qq g++7
-    - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++7 90
+    - sudo apt-get install gcc-7 g++-7 -qq
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90 --slave /usr/bin/g++ g++ /usr/bin/g++-7
 
 script:
     - ./scripts/build_release.sh
