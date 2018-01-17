@@ -1,0 +1,22 @@
+sudo: true
+
+language: cpp
+
+compiler: gcc
+
+before_install:
+    # C++17
+    - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
+    - sudo apt update -qq
+
+install:
+    # C++17
+    - sudo apt install -qq g++7
+    - sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++7 90
+
+script:
+    - ./scripts/build_release.sh
+    - ./scripts/test.sh
+    - ./scripts/clean.sh
+    - ./scripts/build_debug.sh
+    - ./scripts/test.sh

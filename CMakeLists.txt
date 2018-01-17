@@ -1,7 +1,13 @@
 cmake_minimum_required(VERSION 2.8)
 project(algorithms C CXX)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
+
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+message(STATUS "Build configuration: ${CMAKE_BUILD_TYPE}")
 
 enable_testing()
 
