@@ -1,26 +1,27 @@
-sudo: true
-
+sudo: false
+dist: trusty
 language: cpp
-
 compiler: gcc
 
-before_install:
-    # cmake
-    - sudo add-apt-repository --yes ppa:george-edison55/cmake-3.x
-    # C++17
-    - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
-    - sudo apt-get update -qq
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
 
-install:
-    # cmake
-    - sudo apt-get install --only-upgrade cmake
-    # C++17
-    - sudo apt-get install gcc-7 g++-7 -qq
-    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 90 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+before_install:
+  - pip install --user cpp-coveralls
 
 script:
-    - ./scripts/build_release.sh
-    - ./scripts/test.sh
-    - ./scripts/clean.sh
-    - ./scripts/build_debug.sh
-    - ./scripts/test.sh
+  - ./scripts/build_release.sh
+  - ./scripts/test.sh
+  - ./scripts/clean.sh
+  - ./scripts/build_debug.sh
+  - ./scripts/test.sh
+  - ./scripts/clean.sh
+  - ./scripts/build_coverage.sh
+  - ./scripts/test.sh
+
+after_success:
+  - coveralls --root . -E ".*gtest.*" -E ".*gmock.*" -E ".*CMakeFiles.*" -e "build/test"

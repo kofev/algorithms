@@ -97,9 +97,9 @@ TEST_P(list_reverse, parametrized_reverse) {
     auto current_list = create_list(GetParam());
     auto orig_list = convert_list(current_list);
 
-    print_list(current_list);
+//    print_list(current_list);
     current_list = reverse(current_list);
-    print_list(current_list);
+//    print_list(current_list);
     check_reversed_list(orig_list, convert_list(current_list));
     delete_list(current_list);
 }

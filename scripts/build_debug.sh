@@ -2,5 +2,5 @@
 
 mkdir build
 cd build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
-make
+CXX=/usr/bin/g++-7 CC=/usr/bin/gcc-7 cmake -DCMAKE_BUILD_TYPE=Debug ..
+make -j2

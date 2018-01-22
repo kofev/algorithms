@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd build
-make test
+./test/alg_example > alg_example_result.txt
