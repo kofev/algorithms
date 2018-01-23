@@ -9,6 +9,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-7
+      - valgrind
 
 before_install:
   - pip install --user cpp-coveralls
@@ -19,6 +20,7 @@ script:
   - ./scripts/clean.sh
   - ./scripts/build_debug.sh
   - ./scripts/test.sh
+  - ./scripts/valgrind_test.sh
   - ./scripts/clean.sh
   - ./scripts/build_coverage.sh
   - ./scripts/test.sh

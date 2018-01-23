@@ -60,12 +60,9 @@ void print_list(node* first) {
 }
 
 node* create_list(int size) {
-    node* head = nullptr;
-    node* cur = nullptr;
-
-    head = new node(g_randomizer.generate());
+    node* head = new node(g_randomizer.generate());
+    node* cur = head;
     head->next = nullptr;
-    cur = head;
 
     for (int i = 1; i < size; ++i) {
         cur->next = new node(g_randomizer.generate());
