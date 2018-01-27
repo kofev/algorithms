@@ -1,14 +1,7 @@
 #ifndef LIST_REVERSE_H
 #define LIST_REVERSE_H
 
-struct node {
-    node(int val)
-        : value(val) {
-    }
-
-    int value;
-    node* next = nullptr;
-};
+#include <list/node.h>
 
 node* reverse(node* list);
 
