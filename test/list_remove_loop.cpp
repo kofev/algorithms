@@ -25,14 +25,14 @@ test_param_arr_t create_params(int max_list_size) {
 }
 
 node* generate(const test_param_t& par) {
-    node* head = new node{0};
+    node* head = create_node(0);
     node* cur = head;
     node* loop = nullptr;
     int i = 1;
 
     // Generate list body
     for (; i <= par.first; ++i) {
-        cur->next = new node{i};
+        cur->next = create_node(i);
         cur = cur->next;
     }
 
@@ -40,7 +40,7 @@ node* generate(const test_param_t& par) {
 
     // Generate list loop
     for (; i <= par.first + par.second; ++i) {
-        cur->next = new node{i};
+        cur->next = create_node(i);
         cur = cur->next;
     }
 

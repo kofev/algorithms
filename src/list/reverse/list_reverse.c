@@ -1,15 +1,17 @@
+#include <stddef.h>
+
 #include "list_reverse.h"
 
 node* reverse(node* list) {
-    node* prev = nullptr;
-    node* tmp = nullptr;
+    node* prev = NULL;
+    node* tmp = NULL;
     node* cur = list;
 
-    if (cur != nullptr && cur->next != nullptr) {
+    if (cur != NULL && cur->next != NULL) {
         prev = cur;
         cur = cur->next;
 
-        while (cur->next != nullptr) {
+        while (cur->next != NULL) {
             tmp = cur->next;
             cur->next = prev;
             prev = cur;
@@ -17,7 +19,7 @@ node* reverse(node* list) {
         }
 
         cur->next = prev;
-        list->next = nullptr;
+        list->next = NULL;
     }
 
     return cur;

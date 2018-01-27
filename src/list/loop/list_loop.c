@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 #include "list_loop.h"
 
 void delete_loop_nodes(node* loop_begin) {
@@ -5,20 +7,20 @@ void delete_loop_nodes(node* loop_begin) {
     node* cur = loop_begin->next;
 
     while (next != loop_begin) {
-        delete cur;
+        delete_node(cur);
         cur = next;
         next = next->next;
     }
 
-    delete cur;
+    delete_node(cur);
 }
 
 node* find_loop(node* head) {
     node* slow = head;
     node* fast = head;
-    node* res = nullptr;
+    node* res = NULL;
 
-    while (slow->next != nullptr && fast->next != nullptr && fast->next->next != nullptr) {
+    while (slow->next != NULL && fast->next != NULL && fast->next->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
 
@@ -38,13 +40,13 @@ node* find_loop(node* head) {
 
 void remove_loop(node* loop) {
     delete_loop_nodes(loop);
-    loop->next = nullptr;
+    loop->next = NULL;
 }
 
 void find_and_remove_loop(node* head) {
     node* loop = find_loop(head);
 
-    if (loop != nullptr) {
+    if (loop != NULL) {
         remove_loop(loop);
     }
 }

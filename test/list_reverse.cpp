@@ -24,12 +24,12 @@ auto create_arithmetic_progression(int size) {
 }
 
 node* create_list(int size) {
-    node* head = new node(0);
+    node* head = create_node(0);
     node* cur = head;
     head->next = nullptr;
 
     for (int i = 1; i < size; ++i) {
-        cur->next = new node(i);
+        cur->next = create_node(i);
         cur = cur->next;
     }
 

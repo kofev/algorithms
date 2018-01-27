@@ -1,13 +1,22 @@
 #ifndef ALGORITHMS_NODE_H
 #define ALGORITHMS_NODE_H
 
-struct node {
-    node(int val)
-        : value(val) {
-    }
+#ifdef __cplusplus
+extern "C" {
+#endif
 
+typedef struct node node;
+
+struct node {
     int value;
-    node* next = nullptr;
+    node* next;
 };
+
+node* create_node(int val);
+void delete_node(node* ptr);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif // ALGORITHMS_NODE_H

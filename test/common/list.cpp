@@ -8,11 +8,11 @@ void delete_list(node* list) {
     if (list != nullptr) {
         while (list->next != nullptr) {
             tmp = list->next;
-            delete list;
+            delete_node(list);
             list = tmp;
         }
 
-        delete list;
+        delete_node(list);
     }
 }
 
