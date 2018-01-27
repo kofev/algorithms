@@ -25,6 +25,10 @@ if (DEFINED CMAKE_CXX_COMPILER_ID)
     endif ()
 endif ()
 
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif ()
+
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     message(STATUS "Debug build")
 endif (CMAKE_BUILD_TYPE STREQUAL "Debug")
