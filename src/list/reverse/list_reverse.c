@@ -1,6 +1,6 @@
-#include <stddef.h>
-
 #include "list_reverse.h"
+
+#include <stddef.h>
 
 node* reverse(node* list) {
     node* prev = NULL;

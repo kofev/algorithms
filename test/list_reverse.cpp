@@ -1,12 +1,12 @@
-#include <list>
-#include <vector>
-#include <algorithm>
+#include <common/list.h>
+#include <list/reverse/list_reverse.h>
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include <common/list.h>
-#include <list/reverse/list_reverse.h>
+#include <list>
+#include <vector>
+#include <algorithm>
 
 using list_t = std::list<int>;
 

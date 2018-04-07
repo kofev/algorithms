@@ -1,10 +1,10 @@
-#include <vector>
+#include <list/loop/list_loop.h>
+#include <common/list.h>
 
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
 
-#include <list/loop/list_loop.h>
-#include <common/list.h>
+#include <vector>
 
 static constexpr int g_max_test_list_size = 50;
 

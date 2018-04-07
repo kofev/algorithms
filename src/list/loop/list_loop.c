@@ -1,6 +1,6 @@
-#include <stddef.h>
-
 #include "list_loop.h"
+
+#include <stddef.h>
 
 void delete_loop_nodes(node* loop_begin) {
     node* next = loop_begin->next->next;
