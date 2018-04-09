@@ -9,7 +9,7 @@
 #include <time.h>
 
 using test_data = number_array;
-static constexpr int g_test_data_size = 100000000;
+static constexpr int g_test_data_size = 100000001;
 
 template <int array_size = g_test_data_size>
 class sum_checker{
