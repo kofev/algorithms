@@ -79,15 +79,16 @@ array_parts get_parts(const number_array& arr, size_t num) {
 
 using future_array = std::vector<std::future<sum_type>>;
 
-template <typename func_type>
-sum_type multithread_calc_sum(const number_array& arr, func_type&& func) {
+template <typename fn_type>
+sum_type multithread_calc_sum(const number_array& arr, fn_type&& func) {
     future_array futures {};
     auto thread_cnt = std::thread::hardware_concurrency();
     auto parts = get_parts(arr, thread_cnt);
     sum_type sum = 0;
 
     for (auto& part : parts) {
-        futures.emplace_back(std::async(std::launch::async, func, part.ptr, part.size));
+        futures.emplace_back(std::async(std::launch::async,
+                                        std::forward<fn_type>(func), part.ptr, part.size));
     }
 
     for (auto& fut : futures) {

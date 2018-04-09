@@ -25,7 +25,7 @@ public:
         ASSERT_EQ(m_stl_sum, cur_sum);
     }
 
-    auto get_data() const {
+    auto& get_data() const {
         return m_data;
     }
 
@@ -62,7 +62,7 @@ auto& get_checker() {
 template <typename fn_type>
 void test_array_sum(fn_type&& fn) {
     auto& checker = get_checker();
-    auto data = checker.get_data();
+    auto& data = checker.get_data();
     sum_type sum = 0;
     print_execution_time(std::forward<fn_type>(fn), sum, data);
     checker.check_sum(sum);

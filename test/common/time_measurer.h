@@ -12,10 +12,10 @@ public:
 
     template <typename... arg_types>
     /*!
-     * \brief Calculate function execution duration
+     * \brief Calculate function execution duration time
      * \tparam arg_types Argument types
      * \param args Arguments
-     * \return Function execution duration
+     * \return Function execution duration time
      */
     auto operator()(arg_types&&... args) const {
         auto start = steady_clock::now();
