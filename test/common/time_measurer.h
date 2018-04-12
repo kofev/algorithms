@@ -1,3 +1,6 @@
+#ifndef ALGORITHMS_TIME_MEASURER_H
+#define ALGORITHMS_TIME_MEASURER_H
+
 #include <memory>
 #include <chrono>
 #include <iostream>
@@ -33,3 +36,5 @@ void print_execution_time(fn_type&& fn, arg_types&&... args) {
     auto time = time_measurer(std::forward<fn_type>(fn))(std::forward<arg_types>(args)...);
     std::cout << "Execution time in microseconds: " << time.count();
 }
+
+#endif // ALGORITHMS_TIME_MEASURER_H
